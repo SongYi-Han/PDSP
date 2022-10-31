@@ -1,10 +1,11 @@
 #import gensim.downloader as api
 import gensim.downloader
 
-model = gensim.downloader.load('glove-twitter-50')
+model = gensim.downloader.load('fasttext-wiki-news-subwords-300')
 res = model.most_similar('apple', topn=5)
 print("==="*100)
 print(res)
+
 res = model.most_similar('orange', topn=5)
 print("==="*100)
 print(res)
