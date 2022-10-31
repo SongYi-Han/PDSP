@@ -3,14 +3,13 @@ import gensim.downloader
 
 print("loading model")
 model = gensim.downloader.load('glove-wiki-gigaword-50')
-pirnt("model read, calcualtion ...")
+print("model read, calcualtion ...")
 res = model.most_similar('apple', topn=5)
 print("==="*100)
 print(res)
 
 res = model.most_similar('orange', topn=5)
 print("==="*100)
-print(res)
 '''
 model = api.load("glove-wiki-gigaword-50")
 res = model.most_similar('apple', topn=5)
