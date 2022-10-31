@@ -2,6 +2,7 @@
 import gensim.downloader
 
 model = gensim.downloader.load('fasttext-wiki-news-subwords-300')
+pirnt("model read, calcualtion ...")
 res = model.most_similar('apple', topn=5)
 print("==="*100)
 print(res)
