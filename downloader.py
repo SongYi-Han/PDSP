@@ -1,6 +1,7 @@
 #import gensim.downloader as api
 import gensim.downloader
 
+print("loading model")
 model = gensim.downloader.load('fasttext-wiki-news-subwords-300')
 pirnt("model read, calcualtion ...")
 res = model.most_similar('apple', topn=5)
