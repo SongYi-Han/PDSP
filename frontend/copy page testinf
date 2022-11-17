@@ -1,0 +1,144 @@
+from multiprocessing.sharedctypes import Value
+import dash
+import pandas as pd
+import plotly.express as px
+from dash import dash, html, dcc, Input, Output, State
+from dash.dependencies import Input, Output
+import requests
+
+
+#image link
+home_img='https://blog.giki.earth/wp-content/uploads/2020/02/sweet-potato-tomato-stew-1.jpg'
+#external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
+
+#app = Dash(__name__, external_stylesheets=external_stylesheets)
+
+
+
+app = dash.Dash(__name__, assets_folder="assets")
+
+# dash.register_page("home",  path='/', layout=html.Div('Home Page'))
+# dash.register_page("calculate", layout=html.Div('Calculate'))
+# dash.register_page("result", layout=html.Div('Result'))
+
+
+LINK_INPUT_PLACEHOLDE = 'Links from food.com'
+app.layout = html.Div(style={
+    'background-image': 'url(home_img)'
+    },children = [
+    html.H1("Enter your recipe",style={"text-align": "center","marginTop":250,"font-size":60}),
+    html.Img(src=home_img),
+    html.Div([
+          dcc.Input(
+          id='recipelink',
+          placeholder=LINK_INPUT_PLACEHOLDE,
+          type='text',
+          style={"border-radius":5, "width":750,"padding" : 16,"font-size":12}),
+     
+          html.Button('import', id='import-button', style={"text-align": "center", "width":60})],
+        
+          style={"text-align": "center"}),
+
+   
+    html.Br(),
+    html.Br(),
+
+    html.Div([
+        
+        html.Div([
+          html.H2("Ingredient", style={"font-size":22,'margin-left':'20px','margin-right':'60px','display':'inline-block'}),
+          html.H3("Quantity", style={"font-size":22,'margin-right':'30px','margin-right':'80px','display':'inline-block'}),
+          html.H4("Unit", style={"font-size":22,'margin-right':'80px','display':'inline-block'}),
+          html.H5("Status", style={"font-size":22,'margin-left':'30px','margin-right':'50px','display':'inline-block'}),
+          html.Br(),
+          dcc.Input(
+               id='ingredient1',
+               placeholder='Insert ingredient name',
+               type='text',
+               value='potato'),
+          dcc.Input(
+               id='quantity1',
+               placeholder='Insert ingredient quantity',
+               type='number',
+               value='3'),
+          dcc.Input(
+               id='unit1',
+               placeholder='Insert ingredient unit',
+               type='text',
+               value='grams'),
+          dcc.Input(
+               id='status1',
+               placeholder='Insert ingredient status',
+               type='text',
+               value='frozen'),
+
+          html.Br(),
+          dcc.Input(
+               id='ingredient2',
+               placeholder='Ingredient name',
+               type='text'),
+          dcc.Input(
+               id='quantity2',
+               placeholder='Quantity',
+               type='number'),
+          dcc.Input(
+               id='unit2',
+               placeholder='Unit',
+               type='text'),
+          dcc.Input(
+               id='status2',
+               placeholder='Status',
+               type='text'),
+
+          html.Br(),
+          dcc.Input(
+               id='ingredient3',
+               placeholder='Ingredient name',
+               type='text'),
+          dcc.Input(
+               id='quantity3',
+               placeholder='Quantity',
+               type='number'),
+          dcc.Input(
+               id='unit3',
+               placeholder='Unit',
+               type='text'),
+          dcc.Input(
+               id='status3',
+               placeholder='Status',
+               type='text'),
+
+          html.Br(),
+          dcc.Input(
+               id='ingredient4',
+               placeholder='Ingredient name',
+               type='text'),
+          dcc.Input(
+               id='quantity4',
+               placeholder='Quantity',
+               type='number'),
+          dcc.Input(
+               id='unit4',
+               placeholder='Unit',
+               type='text'),
+          dcc.Input(
+               id='status4',
+               placeholder='Status',
+               type='text'),
+               ]),
+
+        html.Br(),
+        html.Br(),
+        html.Button('calculate', id='calculate-button', n_clicks=0, style={"text-align": "center", "width":350, "height" : 70, "border-radius":20, "font-size":35, "background": "#DBE9D7"})], 
+         
+         style={"text-align": "center"}),
+
+    
+
+    ])
+
+
+if __name__ == '__main__':
+     app.run_server( host = '127.0.0.1',port = 8088, debug = True)
+
+
