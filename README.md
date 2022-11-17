@@ -25,6 +25,10 @@ recipe and to help users make more sustainable meal choices (ideally recommends 
 * Dashboard with meaningful insights about the carbon footprint of the recipes in the database
 
 ### App architecture
+<img width="620" alt="Screen Shot 2022-11-17 at 4 31 23 PM" src="https://user-images.githubusercontent.com/40763359/202488624-6fb14072-986c-44db-9081-baffe3ecc6d0.png">
+<img width="566" alt="Screen Shot 2022-11-17 at 4 31 31 PM" src="https://user-images.githubusercontent.com/40763359/202488630-de97acfb-fd96-495e-beeb-9e2e2440f57b.png">
+
+
 * Database
   * Store the raw recipes scraped by the user
   * Store the parsed recipes
@@ -39,11 +43,12 @@ recipe and to help users make more sustainable meal choices (ideally recommends 
   * Recommend similar but more sustainable recipes.
   * Write results in your Cloud SQL database
 * Frontend
+  * wire frame: [link](https://www.figma.com/file/ISHDKbUVkF7jo4pHVhANIt/Untitled?node-id=0%3A1&t=9xjJk0VniAFKdokk-1)
   * Intuitive user interface with interactive tools (input: recipe URL from food.com, output : CO2 score and recommended recipes)
   * Dashboard with relevant insights.
 
 ### Technology stacks 
-1. Python (dash, flask, scikit-learn)
+1. Python (dash, flask, sqlalchemy, scikit-learn, gensim)
 2. SQL (postgreSQL)
 3. Google Cloud Platform (https://cloud.google.com/)
 4. Datastudio (https://datastudio.google.com/)
@@ -58,14 +63,14 @@ recommendation algorithm
 
 ### Development process
 1. Set up infrastructure on GCP
-* Setup the backend server
-* Setup the frontend server
+* Setup the backend server (Computer Engine - Virtual machine)
+* Setup the frontend server (Computer Engine - Virtual machine)
 * Setup the database (Cloud SQL server)
 * Deploy the demo app 
 
 2. Create the app
-* Create the back-end APIs (R: plumber; Python: flask /django)
-* Create the front-end (R: shiny; Python: flask / django)
+* Create the back-end APIs (Python & flask & Dash)
+* Create the front-end (Python & flask )
 * Create the dashboard (Google Datastudio)
 
 3. Deploy and test
